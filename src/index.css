@@ -1,16 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
 
 :root {
-  --primary-color: #6366f1; /* Indigo */
-  --primary-hover: #4f46e5;
-  --bg-color: #0f172a; /* Slate 900 */
-  --card-bg: rgba(30, 41, 59, 0.7); /* Slate 800 with opacity */
-  --card-border: rgba(255, 255, 255, 0.1);
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --input-bg: rgba(15, 23, 42, 0.6);
-  --input-border: rgba(255, 255, 255, 0.2);
-  --focus-ring: rgba(99, 102, 241, 0.5);
+  --primary-color: #4f46e5; /* Indigo */
+  --primary-hover: #4338ca;
+  --bg-color: #f1f5f9; /* Slate 100 */
+  --card-bg: #ffffff; /* Pure white */
+  --card-border: #e2e8f0; /* Slate 200 */
+  --text-main: #1e293b; /* Slate 800 */
+  --text-muted: #64748b; /* Slate 500 */
+  --input-bg: #f8fafc; /* Slate 50 */
+  --input-border: #cbd5e1; /* Slate 300 */
+  --focus-ring: rgba(79, 70, 229, 0.3);
+  --option-hover: #f1f5f9;
+  --option-selected-bg: rgba(79, 70, 229, 0.08);
 }
 
 * {
@@ -25,8 +27,8 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   min-height: 100vh;
-  /* Premium dark background gradient */
-  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  /* Light and clear subtle background */
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   background-attachment: fixed;
 }
 
@@ -36,37 +38,34 @@ body {
   padding: 2rem 1rem;
 }
 
-/* Glassmorphism Card Style */
+/* Card Style for Light Mode */
 .glass-card {
   background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
 .title-card {
   text-align: center;
   padding: 2.5rem 1.5rem;
   margin-bottom: 2rem;
+  background: #ffffff;
 }
 
 .title-card h1 {
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  background: linear-gradient(to right, #818cf8, #c084fc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary-color);
 }
 
 .title-card p {
@@ -76,8 +75,9 @@ body {
 
 .question-title {
   font-size: 1.15rem;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 1rem;
+  color: #0f172a;
 }
 
 .options-container {
@@ -92,25 +92,26 @@ body {
   align-items: center;
   padding: 0.875rem 1rem;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid transparent;
+  background: var(--card-bg);
+  border: 1px solid var(--input-border);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .option-label:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--option-hover);
+  border-color: #94a3b8;
 }
 
 .option-label.selected {
-  background: rgba(99, 102, 241, 0.15);
+  background: var(--option-selected-bg);
   border-color: var(--primary-color);
 }
 
 .option-input {
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border: 2px solid var(--text-muted);
   margin-right: 12px;
   outline: none;
@@ -119,6 +120,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: white;
 }
 
 /* Radio circle */
@@ -138,7 +140,7 @@ input[type="radio"].option-input:checked::before {
 
 /* Checkbox square */
 input[type="checkbox"].option-input {
-  border-radius: 4px;
+  border-radius: 6px;
 }
 input[type="checkbox"].option-input:checked {
   background: var(--primary-color);
@@ -168,6 +170,7 @@ input[type="checkbox"].option-input:checked::before {
 .text-input:focus {
   outline: none;
   border-color: var(--primary-color);
+  background: #ffffff;
   box-shadow: 0 0 0 3px var(--focus-ring);
 }
 
@@ -182,19 +185,20 @@ textarea.text-input {
   padding: 1rem;
   border: none;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+  background: var(--primary-color);
   color: white;
   font-size: 1.15rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
   transition: all 0.3s ease;
   margin-top: 1rem;
 }
 
 .submit-btn:hover {
+  background: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+  box-shadow: 0 6px 15px rgba(79, 70, 229, 0.4);
 }
 
 .submit-btn:active {
@@ -202,7 +206,7 @@ textarea.text-input {
 }
 
 .submit-btn:disabled {
-  background: #475569;
+  background: #94a3b8;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
@@ -217,7 +221,7 @@ textarea.text-input {
 
 .success-icon {
   font-size: 4rem;
-  color: #4ade80;
+  color: #22c55e;
   margin-bottom: 1rem;
 }
 
