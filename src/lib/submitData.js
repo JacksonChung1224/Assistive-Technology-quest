@@ -1,5 +1,5 @@
 // Replace this URL with your deployed Google Apps Script Web App URL
-const GAS_WEBAPP_URL = "https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbwg0rvgdEkMQ9RG9Ryb11Z7jnFHpXYYPVFlpjuuA68_oSDKg0AwhT82Xb75oD1VQqKVtA/exec/exec";
+const GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwg0rvgdEkMQ9RG9Ryb11Z7jnFHpXYYPVFlpjuuA68_oSDKg0AwhT82Xb75oD1VQqKVtA/exec";
 
 export const submitFormToGoogleSheets = async (formData) => {
   try {
@@ -13,7 +13,7 @@ export const submitFormToGoogleSheets = async (formData) => {
 
     const response = await fetch(GAS_WEBAPP_URL, {
       method: "POST",
-      // mode: 'no-cors', // Uncomment if encountering strict CORS, but response will be opaque
+      mode: 'no-cors', // Enabled to bypass strict CORS policies on GAS
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
