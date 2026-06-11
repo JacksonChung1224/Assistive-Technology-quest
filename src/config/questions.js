@@ -38,7 +38,11 @@ export const questions = [
       "居家照護服務",
       "未曾申請過"
     ],
-    hasOther: false
+    hasOther: false,
+    skipLogic: {
+      conditionOption: "未曾申請過",
+      skipIds: ["q4", "q5", "q6"]
+    }
   },
   {
     id: "q4",

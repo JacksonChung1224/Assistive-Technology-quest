@@ -15,9 +15,25 @@ function App() {
     }));
   };
 
+  const skippedQuestionIds = React.useMemo(() => {
+    let idsToSkip = new Set();
+    questions.forEach(q => {
+      if (q.skipLogic) {
+        const val = answers[q.id];
+        if (Array.isArray(val) && val.includes(q.skipLogic.conditionOption)) {
+          q.skipLogic.skipIds.forEach(id => idsToSkip.add(id));
+        } else if (val === q.skipLogic.conditionOption) {
+          q.skipLogic.skipIds.forEach(id => idsToSkip.add(id));
+        }
+      }
+    });
+    return idsToSkip;
+  }, [answers]);
+
   const handleSubmit = async () => {
     // Basic validation
     const unanswered = questions.filter(q => {
+      if (skippedQuestionIds.has(q.id)) return false;
       if (q.required === false) return false;
       
       const val = answers[q.id];
@@ -61,14 +77,17 @@ function App() {
         <p>我們正在規劃一個協助民眾快速了解長照資源與申請流程的服務，希望透過您的經驗了解目前遇到的困難與需求。本問卷約需 3～5 分鐘，所有資料僅供服務設計研究使用。</p>
       </div>
       
-      {questions.map((q) => (
-        <QuestionCard
-          key={q.id}
-          question={q}
-          value={answers[q.id]}
-          onChange={handleAnswerChange}
-        />
-      ))}
+      {questions.map((q) => {
+        if (skippedQuestionIds.has(q.id)) return null;
+        return (
+          <QuestionCard
+            key={q.id}
+            question={q}
+            value={answers[q.id]}
+            onChange={handleAnswerChange}
+          />
+        );
+      })}
 
       <button 
         className="submit-btn" 
