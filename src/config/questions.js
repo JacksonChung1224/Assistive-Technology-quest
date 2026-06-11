@@ -172,5 +172,27 @@ export const questions = [
     placeholder: "請簡述您的想法...",
     hasOther: false,
     required: false
+  },
+  {
+    id: "q11",
+    title: "11. 您是否願意接受我們後續簡短的訪談，協助打造更符合需求的服務？(單選)",
+    type: "radio",
+    options: [
+      "是，我願意",
+      "先不要"
+    ],
+    hasOther: false,
+    skipLogic: {
+      conditionOption: "先不要",
+      skipIds: ["q12"]
+    }
+  },
+  {
+    id: "q12",
+    title: "12. 若您願意，請留下您的 Email 或聯絡電話：(選填)",
+    type: "text",
+    placeholder: "例如：test@example.com 或 0912-345-678",
+    hasOther: false,
+    required: false
   }
 ];
