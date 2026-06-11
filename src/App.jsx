@@ -18,6 +18,8 @@ function App() {
   const handleSubmit = async () => {
     // Basic validation
     const unanswered = questions.filter(q => {
+      if (q.required === false) return false;
+      
       const val = answers[q.id];
       if (q.type === 'text') return !val || val.trim() === '';
       if (q.type === 'checkbox') return !val || val.length === 0;
@@ -55,8 +57,8 @@ function App() {
   return (
     <>
       <div className="glass-card title-card">
-        <h1>輔具補助照護需求調查</h1>
-        <p>我們正在規劃一個協助民眾快速了解輔具補助、長照資源與申請流程的服務，希望透過您的經驗了解目前遇到的困難與需求。本問卷約需 3～5 分鐘，所有資料僅供服務設計研究使用。</p>
+        <h1>照護需求調查</h1>
+        <p>我們正在規劃一個協助民眾快速了解長照資源與申請流程的服務，希望透過您的經驗了解目前遇到的困難與需求。本問卷約需 3～5 分鐘，所有資料僅供服務設計研究使用。</p>
       </div>
       
       {questions.map((q) => (

@@ -1,7 +1,7 @@
 export const questions = [
   {
     id: "q1",
-    title: "1. 您目前的身份為？",
+    title: "1. 您目前的身份為？(單選)",
     type: "radio",
     options: [
       "被照顧者本人",
@@ -14,7 +14,7 @@ export const questions = [
   },
   {
     id: "q2",
-    title: "2. 您照顧的對象是？",
+    title: "2. 您照顧的對象是？(單選)",
     type: "radio",
     options: [
       "自己",
@@ -28,7 +28,7 @@ export const questions = [
   },
   {
     id: "q3",
-    title: "3. 您是否曾申請過以下項目？",
+    title: "3. 您是否曾申請過以下項目？(可複選)",
     type: "checkbox",
     options: [
       "長照服務",
@@ -42,7 +42,7 @@ export const questions = [
   },
   {
     id: "q4",
-    title: "4. 最近一次尋找照護資源或申請補助時，最困難的是什麼？",
+    title: "4. 最近一次尋找照護資源或申請補助時，最困難的是什麼？(可複選)",
     type: "checkbox",
     options: [
       "不知道有哪些補助可以申請",
@@ -61,7 +61,7 @@ export const questions = [
   },
   {
     id: "q5",
-    title: "5. 您認為申請補助過程中最麻煩的一件事是什麼？",
+    title: "5. 您認為申請補助過程中最麻煩的一件事是什麼？(單選)",
     type: "radio",
     options: [
       "查詢資格",
@@ -75,7 +75,7 @@ export const questions = [
   },
   {
     id: "q6",
-    title: "6. 您大約花了多少時間才完成申請或找到需要的資訊？",
+    title: "6. 您大約花了多少時間才完成申請或找到需要的資訊？(單選)",
     type: "radio",
     options: [
       "30分鐘內",
@@ -89,7 +89,7 @@ export const questions = [
   },
   {
     id: "q7",
-    title: "7. 如果有一個小助手，可以協助您查詢長照與輔具補助資訊，您最希望它提供哪些功能？",
+    title: "7. 如果有一個小助手，可以協助您查詢長照與輔具補助資訊，您最希望它提供哪些功能？(可複選)",
     type: "checkbox",
     options: [
       "補助資格快速查詢",
@@ -105,7 +105,7 @@ export const questions = [
   },
   {
     id: "q8",
-    title: "8. 您最常使用哪些工具查詢資訊？",
+    title: "8. 您最常使用哪些工具查詢資訊？(可複選)",
     type: "checkbox",
     options: [
       "Google",
@@ -120,7 +120,7 @@ export const questions = [
   },
   {
     id: "q9",
-    title: "9. 如果上述服務免費提供，您願意使用嗎？",
+    title: "9. 如果上述服務免費提供，您願意使用嗎？(單選)",
     type: "radio",
     options: [
       "非常願意",
@@ -133,9 +133,10 @@ export const questions = [
   },
   {
     id: "q10",
-    title: "10. 如果可以改善目前的補助申請流程，您最希望解決什麼問題？",
+    title: "10. 如果可以改善目前的補助申請流程，您最希望解決什麼問題？(選填)",
     type: "text",
     placeholder: "請簡述您的想法...",
-    hasOther: false
+    hasOther: false,
+    required: false
   }
 ];
